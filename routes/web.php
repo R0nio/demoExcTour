@@ -1,11 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TourController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome')->with('success', 'User created successfully!');
-});
+Route::get('/', [TourController::class, 'index'])->name('welcom');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
