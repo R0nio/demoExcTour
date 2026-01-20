@@ -1558,6 +1558,9 @@
                     <h3>{{$tour->title}}</h3>
                     <p>{{$tour->date}}</p>
                     <p>{{$tour->cost}} &#8381;</p>
+                    @auth
+                    <a href="{{route('orders.create')}}" class="flex mb-1 border-gray-200 p-2 justify-center bg-gray-400">Забронировать</a>
+                    @endauth
                 </div>
                 @endforeach
             </div>
