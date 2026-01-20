@@ -11,11 +11,18 @@
                 <div class="p-6 text-gray-200">
                     <form action="{{route('orders.store')}}" method="post">
                         @csrf
+                        <img src="{{ Vite::asset($tour->image) }}" width="200" alt="">
+                        <p class="text-black">{{$tour->title}}</p>
+                        <p class="text-black">{{$tour->date}}</p>
+                        <p class="text-black">{{$tour->cost}}&#8381;</p>
                         <div>
                             <x-input-label for="count" :value="__('Количество')" />
                             <x-text-input id="count" class="block mt-1 w-full text-black mb-2" type="number" name="count" :value="old('count')" required autofocus autocomplete="username" />
                             <x-input-error :messages="$errors->get('count')" class="mt-2" />
                         </div>
+
+                        <input type="hidden" name="tour_id" value="{{$tour->id}}">
+
                         <x-primary-button>
                             {{ __('Забронировать') }}
                         </x-primary-button>
