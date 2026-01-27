@@ -15,6 +15,14 @@
                     </div>
                     @else
                     <div class="flex flex-col text-black">
+                        <div>
+                            <h2>Фильтрация по турам</h2>
+                            <ul>
+                                @foreach ($tours as $tour)
+                                <li><a href="{{ route('admin.index', ['tour'=>$tour->id]) }}">{{$tour->title}}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
                         <div class="grid grid-cols-6">
                             <p>ФИО</p>
                             <p>Кол-во мест</p>
