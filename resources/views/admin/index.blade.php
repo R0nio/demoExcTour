@@ -17,10 +17,12 @@
                     <div class="flex flex-col text-black">
                         <div>
                             <h2>Фильтрация по турам</h2>
-                            <ul>
+                            <a class="border-2 border-gray-200 " href="{{ route('admin.index') }}">Очистить</a>
+                            <ul class="mb-3">
                                 @foreach ($tours as $tour)
                                 <li><a href="{{ route('admin.index', ['tour'=>$tour->id]) }}">{{$tour->title}}</a></li>
                                 @endforeach
+
                             </ul>
                         </div>
                         <div class="grid grid-cols-6">

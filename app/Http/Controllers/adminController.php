@@ -12,14 +12,13 @@ class adminController extends Controller
     public function index(Request $request)
     {
         $validate = $request->validate([
-            'tour' => 'exists:tour,id'
+            'tour' => 'exists:tours,id'
         ]);
         if ($validate) {
             $orders = Order::where('tour_id', $request->tour)->get();
         } else {
             $orders = Order::all();
         }
-        $orders = Order::all();
         $tours = Tour::all();
 
         return view('admin.index', compact('orders', 'tours'));
