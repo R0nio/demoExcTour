@@ -15,6 +15,9 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (!auth()->check() || auth()->user()->isAdmin()) {
+            abort(403, 'Доступ запрещен');
+        }
         return $next($request);
     }
 }

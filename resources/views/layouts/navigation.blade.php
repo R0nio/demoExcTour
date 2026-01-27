@@ -21,6 +21,14 @@
                         {{ __('Личный кабинет') }}
                     </x-nav-link>
                 </div>
+                @if (auth()->user()->isAdmin())
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
+                        {{ __('Админ панель') }}
+                    </x-nav-link>
+                </div>
+
+                @endif
             </div>
 
             <!-- Settings Dropdown -->
@@ -75,6 +83,13 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Личный кабинет') }}
             </x-responsive-nav-link>
+            @if (auth()->user()->isAdmin())
+            <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
+                {{ __('Админ панель') }}
+            </x-responsive-nav-link>
+            @endif
+
+
         </div>
 
         <!-- Responsive Settings Options -->

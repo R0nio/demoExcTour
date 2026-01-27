@@ -1531,6 +1531,14 @@
                 class="inline-block px-5 py-1.5 border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] rounded-sm text-sm leading-normal">
                 Личный кабинет
             </a>
+            @if (auth()->user()->isAdmin())
+            <a
+                href="{{ url('/admin') }}"
+                class="inline-block px-5 py-1.5 border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] rounded-sm text-sm leading-normal">
+                Админ панель
+            </a>
+
+            @endif
             @else
             <a
                 href="{{ route('login') }}"
