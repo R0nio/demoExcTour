@@ -23,7 +23,16 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
+        User::create([
+            'name' => 'admin',
+            'middlename' => 'admin',
+            'lastname' => 'admin',
+            'login' => 'admin',
+            'tel' => '79999999999',
+            'email' => 'admin@adm.ru',
+            'role' => 'admin',
+            'password' => 'administrator'
+        ]);
 
         DB::table('tours')->insert(
             [
